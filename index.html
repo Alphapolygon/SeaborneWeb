@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <link rel="stylesheet" href="glitch.css">
 <link rel="icon" href="favicon.png">
@@ -25,7 +27,7 @@
     <ul>
       <li><a href="#home">home</a></li>
       <li><a href="#about">about</a></li>
-      <li><a href="#investors">investors</a></li>
+      <li><a href="#games">games</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
   </div>
@@ -44,12 +46,22 @@
 	</div>
 	
   </section>
-  
-  <section id="about">
-    <h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp about &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+
+			
+		<section id="about">
+		<h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp about &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+		
+		<h3> With over 100 years of combined expertise in game development,  <br> our team is revolutionizing the gaming industry with fresh, innovative approaches. <br>
+		Dive into a world where creativity knows no bounds, <br> and gameplay experiences are redefined. Get ready to embark on thrilling adventures,  <br>
+		explore immersive worlds, and engage in unforgettable challenges unlike  <br> anything you've experienced before. Join us as we shape the future of gaming!
+		<br> <br> List of some games our team has been part of:  </h3>
+
+		<table id="resizable-table"></table>
+	
   </section>
-  <section id="investors">
-    <h2>&nbsp&nbsp&nbsp&nbsp&nbsp investors &nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+  
+  <section id="games">
+    <h2>&nbsp&nbsp&nbsp&nbsp&nbsp games &nbsp&nbsp&nbsp&nbsp&nbsp</h2>
   </section>
   <section id="contact">
     <h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp contact &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
@@ -57,3 +69,52 @@
   
 
 </div>
+
+<script>
+  // Function to create and populate the table
+  function createTable(rows, columns) {
+    var table = document.getElementById("resizable-table");
+
+    // Clear existing table content
+    table.innerHTML = "";
+
+    // Create new table rows and cells
+    for (var i = 0; i < rows; i++) {
+      var row = table.insertRow();
+      for (var j = 0; j < columns; j++) {
+        var cell = row.insertCell();
+        cell.innerHTML = '<img src="pics/game_' + (i * columns + j + 1) + '.png" alt="Game ' + (i * columns + j + 1) + '">';
+      }
+    }
+  }
+
+  // Function to determine the number of rows and columns based on screen width
+  function updateTableLayout() {
+    var screenWidth = window.innerWidth;
+
+    // Determine number of rows and columns based on screen width
+    var rows, columns;
+    if (screenWidth < 1080) {
+      rows = 6;
+      columns = 4;
+    } else {
+      rows = 3;
+      columns = 8;
+    }
+
+    // Create or update the table with the new layout
+    createTable(rows, columns);
+  }
+
+  // Initial setup when the page loads
+  window.onload = function() {
+    updateTableLayout();
+  };
+
+  // Update table layout when the window is resized
+  window.onresize = function() {
+    updateTableLayout();
+  };
+</script>
+
+</html>

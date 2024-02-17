@@ -1,6 +1,51 @@
+table {
+      max-width: 100%;
+      border-collapse: collapse;
+     
+	  position: relative;
+	  top: 250px;
+    }
+    table td {
+      padding: 5px;
+      border: 0px solid #ccc;
+	  text-align: center;
+    }
+    img {
+	  width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Media query for screen less than 1080px wide */
+    @media (max-width: 1080px) {
+	  
+	  img {
+		width: 55%;
+		height: auto;
+	  }
+	table td {
+        width: 25%;
+        /* Set height equal to width to make cells square */
+        height: calc(2vw - 10px); /* 10px is the total padding (5px on each side) */
+      }
+    }
+
+    /* Media query for wider screens */
+    @media (min-width: 1081px) {
+	img {
+		width: 100%;
+		height: auto;
+	  }
+	  
+	 table td {
+        width: 12.5%;
+        /* Set height equal to width to make cells square */
+        height: calc(2.5vw - 10px); /* 10px is the total padding (5px on each side) */
+      }
+    }
 
 $colone: #312d3c;
-$coltwo: #1d1e22;
+$coltwo: #191919;
 $colthr: #f4f4f4;
 
 *,
@@ -17,20 +62,7 @@ $colthr: #f4f4f4;
   min-height: 100%;
 }
 
-img {
-   width: 100%;
-   height: auto;
 
-   position: relative;
-   left: 0;
-   right: 0;
-   top: 0;
-   bottom: 0;
-   margin-left: auto;
-   margin-right: auto;
-   
-
-}
 
 body {
   position: relative;
@@ -285,6 +317,25 @@ section h2 {
   position: absolute;
   top: 150px;
 }
+
+section h3 {
+  text-transform: uppercase;
+ /* font-size: 1.25rem;
+  font-size: 2vmin; */
+  font-size: clamp(14px, 1vw, 22px);
+  font-weight: 900;
+  padding: 0.5em 1em;
+  color: #1d1e22;
+  background-color: #f4f4f4;
+  mix-blend-mode: screen;
+  border-radius: 0.25em;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 275px;
+}
+
+
 section:nth-child(2) {
   
  
@@ -295,5 +346,24 @@ section:nth-child(3) {
 }
 section:nth-child(4) {
   
+
+}
+
+/* Media query for screen less than 1080px wide */
+@media (max-width: 1080px) {
+  section {
+	  top: 50px;
+  }
+  section h2 {
+	  top: 50px;
+  }
+  section h3{
+	  top: 175px;
+  }
   
+}
+
+/* Media query for wider screens */
+@media (min-width: 1081px) {
+
 }
